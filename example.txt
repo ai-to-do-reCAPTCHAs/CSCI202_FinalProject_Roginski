@@ -1,0 +1,5 @@
+Dog	26589266	Lucky	4	M	true	Pet Shop	Lab
+Dog	609436721	Lily	9	F	false	Pet Shop	Tea Cup Poodle
+Cat	468773137	Mittens	0	F	true	Pet Shop	Black and White
+Bird	389696379	Walter	5	M	true	Pet Shop	S	Blue
+Fish	10448873	Douglas	1	M	Pet Shop	Betta Fish	Blue
