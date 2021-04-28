@@ -1,0 +1,123 @@
+@startuml
+'https://plantuml.com/class-diagram
+
++class PetShopFileFormatException {
+    PetShopFileFormatException(String)
+}
+
++class PetShop {
+    -{static}pets : Pets
+    --
+    +{static}main(String[]) : void
+    +{static}printMenu() : void
+    +{static}readPets(String) : int
+    +{static}parseAnimals(String) : Animals
+}
+
++class Pets {
+    -animals : ArrayList<Animal>
+    -count : int
+    -totals : int[][]
+    --
+    +Pets()
+    --
+    +getCount() : int
+    +add(Animal) : boolean
+    +remove(Animal) : boolean
+    +newAdopted(Animal) : void
+    +getTotals(int, int) : int
+    +totalNotAdopted() : int
+    +totalAdopted() : int
+    -indexOf(Animal) : int
+    +contains(Animal) : boolean
+    +findByChipID(int) : Animal
+    +findByIndex(int) : Animal
+    +toString() : String
+    +writePets(String) : int
+}
+
++class Animal {
+    #name : String
+    #age : int
+    #gender : char
+    #toys: ArrayList<String>
+    #rescue : boolean
+    #owner : String
+    #adoptionDate : Date
+    #chipID : int
+    --
+    +Animal(String, int, char, boolean, String)
+    +Animal(int, String, int, char, boolean, String)
+    --
+    +getName() : String
+    +changeName(String) : void
+    +getAge() : int
+    +birthday() : void
+    +getGender() : char
+    +getToys() : ArrayList<String>
+    +findToy(String) : int
+    +addToy(String) : boolean
+    +removeToy(String) : boolean
+    +isRescue() : boolean
+    +isAdopted() : boolean
+    +adopt(String) : boolean
+    +getAdoptionDate() : Date
+    +getOwner() : String
+    +{abstract}speak : String
+    -generateChipID() : int
+    +getChipID() : int
+    +toString : String
+    +{abstract}toText : String
+}
+
+Animal <|-- Dog
+Animal <|-- Cat
+Animal <|-- Bird
+Animal <|-- Fish
+
++class Dog {
+    -breed : String
+    --
+    +Dog(String, int, char, boolean, String, String)
+    +Dog(String[])
+    --
+    +getBreed() : String
+    +speak() : String
+    +toString() : String
+}
++class Cat {
+    -color : String
+    --
+    +Cat(String, int, char, boolean, String, String)
+    +Cat(String[])
+    --
+    +getColor() : String
+    +speak() : String
+    +toString() : String
+}
++class Bird {
+    -size : char
+    -color : String
+    --
+    +Bird(String, int, char, boolean, String, char, String)
+    +Bird(String[])
+    --
+    +getSize() : char
+    +getColor() : String
+    +speak() : String
+    +toString() : String
+}
++class Fish {
+    -type : String
+    -color : String
+    --
+    +Fish(String, int, char, String, String, String)
+    +Fish(String[])
+    --
+    +getType() : String
+    +getColor() : String
+    +speak() : String
+    +toString() : String
+}
+
+@enduml
